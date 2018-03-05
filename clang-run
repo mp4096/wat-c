@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+mkdir -p "target"
+filename="$1"
+shift
+basename="${filename%.*}"
+targetname="./target/${basename////_}"
+clang $filename "$@" -o "$targetname"
+"$targetname"
